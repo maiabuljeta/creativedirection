@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maia Buljeta - Creative Director for Positive Change</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <style>
+        :root {
+            --gradient-1: linear-gradient(120deg, #20202f, #2C3E50);
+            --gradient-2: linear-gradient(120deg, #4834d4, #686de0);
+            --accent: #686de0;
+            --text: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --overlay: rgba(0, 0, 0, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background: var(--gradient-1);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: var(--gradient-2);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            padding: 4rem 2rem;
+        }
+
+        .header-content {
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(120deg, #fff, #dfe6e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .mission-statement {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            margin: 2rem 0;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border-color: var(--accent);
+        }
+
+        .card-icon {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .card-icon svg {
+            width: 32px;
+            height: 32px;
+            margin-right: 1rem;
+            color: var(--accent);
+        }
+
+        .portfolio-gallery {
+            margin-top: 4rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--overlay);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 4rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            min-width: 200px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(120deg, #fff, #a8e6cf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .links {
+            margin-top: 3rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .link-button {
+            padding: 1rem 2rem;
+            background: var(--card-bg);
+            border-radius: 50px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .link-button:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .mission-statement {
+                font-size: 1.2rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Maia Buljeta</h1>
+            <p class="mission-statement">
+                "I create media that drives positive change, mythbusts artificial divisions, and amplifies voices that need to be heard. Through creative direction and storytelling, I'm dedicated to making our world more equitable, sustainable, and compassionate."
+            </p>
+            <div class="links">
+                <a href="https://noplacelikeome.com" class="link-button">Shop for Innocence</a>
+                <a href="https://maiabuljeta.github.io/hypothiuspicturehouse/" class="link-button">Film Community</a>
+                <a href="https://maiabuljeta.github.io/HypothiusStreaming/" class="link-button">Streaming Platform</a>
+                <a href="https://maiabuljeta.github.io/AdobeRemix/" class="link-button">Adobe Remix</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">11</div>
+                <div>Years Adobe Creative Suite</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">150+</div>
+                <div>Original Products</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">49</div>
+                <div>Community Members</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10K</div>
+                <div>Award Dollars</div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">
+                    <i data-lucide="palette"></i>
+                    <h3>Creative Direction</h3>
+                </div>
+                <p>Adobe Creative Cloud expert with mastery in AI tools, HTML/Python coding, and Blender 3D animation. Creating immersive experiences that drive social change.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <i data-lucide="users"></i>
+                    <h3>Community Building</h3>
+                </div>
+                <p>Leading an engaged film community focused on positive change. Developing platforms that amplify marginalized voices and promote social justice.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <i data-lucide="star"></i>
+                    <h3>Industry Recognition</h3>
+                </div>
+                <p>Award-winning filmmaker and former Oscar-qualifying festival screener. Working with global brands like WPP, UNICEF USA, and Formula E Racing.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <i data-lucide="book"></i>
+                    <h3>Published Author</h3>
+                </div>
+                <p>Philosophy author and educational content creator. Dedicated to sharing knowledge through books, courses, and podcasts that challenge conventional thinking.</p>
+            </div>
+        </div>
+
+        <div class="portfolio-gallery">
+            <h2>Featured Work</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/600/400" alt="Commercial Project">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h3>Award-Winning Commercial</h3>
+                            <p>Creating impactful advertising that resonates</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/600/400" alt="AI Short Film">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h3>AI-Driven Storytelling</h3>
+                            <p>Exploring the future of narrative through technology</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/600/400" alt="Product Design">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h3>Product Design</h3>
+                            <p>150+ original products promoting innocence and joy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
