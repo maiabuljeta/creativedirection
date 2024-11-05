@@ -3,144 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAIA BULJETA - Creative Force for Change</title>
+    <title>Maia Buljeta - Creative Director for Positive Change</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
     <style>
         :root {
-            --gradient-bg: linear-gradient(135deg, #0f0f1f 0%, #1a1a2f 100%);
-            --gradient-card: linear-gradient(135deg, rgba(82, 30, 255, 0.1) 0%, rgba(123, 63, 255, 0.1) 100%);
-            --gradient-accent: linear-gradient(135deg, #521EFF 0%, #7B3FFF 100%);
-            --gradient-hover: linear-gradient(135deg, #6B38FF 0%, #8F5AFF 100%);
+            --gradient-1: linear-gradient(120deg, #20202f, #2C3E50);
+            --gradient-2: linear-gradient(120deg, #4834d4, #686de0);
+            --accent: #686de0;
             --text: #ffffff;
-            --accent: #521EFF;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --neon-shadow: 0 0 15px rgba(82, 30, 255, 0.5);
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --overlay: rgba(0, 0, 0, 0.7);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         body {
-            background: var(--gradient-bg);
+            background: var(--gradient-1);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        .noise {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            opacity: 0.05;
-            background: url('data:image/png;base64,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') repeat;
-            z-index: -1;
-        }
-
         .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
         header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            margin-bottom: 20px;
+            position: relative;
+            background: var(--gradient-2);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            padding: 4rem 2rem;
         }
 
-        .neon-text {
-            font-size: 3em;
-            text-shadow: var(--neon-shadow);
-            animation: pulse 1.5s infinite;
+        .header-content {
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(120deg, #fff, #dfe6e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .mission-statement {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            margin: 2rem 0;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .card {
             background: var(--card-bg);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s ease;
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.5s ease-out;
         }
 
         .card:hover {
-            background: var(--gradient-hover);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border-color: var(--accent);
         }
 
-        h2 {
+        .card-icon {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .card-icon svg {
+            width: 32px;
+            height: 32px;
+            margin-right: 1rem;
             color: var(--accent);
-            font-size: 2em;
         }
 
-        .button {
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background 0.3s ease;
+        .portfolio-gallery {
+            margin-top: 4rem;
         }
 
-        .button:hover {
-            background: var(--gradient-hover);
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        footer {
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--overlay);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            margin-top: 20px;
+            padding: 1rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 4rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            min-width: 200px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(120deg, #fff, #a8e6cf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .links {
+            margin-top: 3rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .link-button {
+            padding: 1rem 2rem;
+            background: var(--card-bg);
+            border-radius: 50px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .link-button:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .mission-statement {
+                font-size: 1.2rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="noise"></div>
     <header>
-        <h1 class="neon-text">MAIA BULJETA</h1>
-        <h2>Your Creative Force for Change</h2>
+        <div class="header-content">
+            <h1>Maia Buljeta</h1>
+            <p class="mission-statement">
+                "I create media that drives positive change, mythbusts artificial divisions, and amplifies voices that need to be heard. Through creative direction and storytelling, I'm dedicated to making our world more equitable, sustainable, and compassionate."
+            </p>
+            <div class="links">
+                <a href="https://noplacelikeome.com" class="link-button">Shop for Innocence</a>
+                <a href="https://maiabuljeta.github.io/hypothiuspicturehouse/" class="link-button">Film Community</a>
+                <a href="https://maiabuljeta.github.io/HypothiusStreaming/" class="link-button">Streaming Platform</a>
+                <a href="https://maiabuljeta.github.io/AdobeRemix/" class="link-button">Adobe Remix</a>
+            </div>
+        </div>
     </header>
+
     <div class="container">
-        <div class="card">
-            <h2>About Me</h2>
-            <p>Filmmaker and creative innovator committed to combining art with social impact.</p>
-            <button class="button">Learn More</button>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">11</div>
+                <div>Years Adobe Creative Suite</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">150+</div>
+                <div>Original Products</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">49</div>
+                <div>Community Members</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10K</div>
+                <div>Award Dollars</div>
+            </div>
         </div>
-        <div class="card">
-            <h2>Projects</h2>
-            <p>Explore my diverse portfolio of films and initiatives.</p>
-            <button class="button">View Projects</button>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">
+                    <i data-lucide="palette"></i>
+                    <h3>Creative Direction</h3>
+                </div>
+                <p>Adobe Creative Cloud expert with mastery in AI tools, HTML/Python coding, and Blender 3D animation. Creating immersive experiences that drive social change.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <i data-lucide="users"></i>
+                    <h3>Community Building</h3>
+                </div>
+                <p>Leading an engaged film community focused on positive change. Developing platforms that amplify marginalized voices and promote social justice.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <i data-lucide="star"></i>
+                    <h3>Industry Recognition</h3>
+                </div>
+                <p>Award-winning filmmaker and former Oscar-qualifying festival screener. Working with global brands like WPP, UNICEF USA, and Formula E Racing.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <i data-lucide="book"></i>
+                    <h3>Published Author</h3>
+                </div>
+                <p>Philosophy author and educational content creator. Dedicated to sharing knowledge through books, courses, and podcasts that challenge conventional thinking.</p>
+            </div>
         </div>
-        <div class="card">
-            <h2>Contact</h2>
-            <p>Let's connect and collaborate on meaningful projects.</p>
-            <button class="button">Get in Touch</button>
+
+        <div class="portfolio-gallery">
+            <h2>Featured Work</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/600/400" alt="Commercial Project">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h3>Award-Winning Commercial</h3>
+                            <p>Creating impactful advertising that resonates</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/600/400" alt="AI Short Film">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h3>AI-Driven Storytelling</h3>
+                            <p>Exploring the future of narrative through technology</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/600/400" alt="Product Design">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h3>Product Design</h3>
+                            <p>150+ original products promoting innocence and joy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <footer>
-        <p>&copy; 2024 Maia Buljeta. All rights reserved.</p>
-    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
